@@ -371,6 +371,7 @@ footer{
   border-radius: 10px;
   font-size: large;
   opacity: 0;
+  display: none;
   transition: opacity 1.8s ease-in-out;
 }
 
