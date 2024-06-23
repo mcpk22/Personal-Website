@@ -181,6 +181,17 @@ nav ul li {
   padding: 20px;
 }
 
+.profile-img {
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
 
 .landing-img, .about-pic{
   position: relative;
@@ -188,11 +199,20 @@ nav ul li {
 }
 .profile-img img{
   width: 100%;
+  transition: opacity 1s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .landing-img img, .about-pic img {
   max-width: 100%;
   height: auto;
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
 }
 
 .about-pic{
@@ -224,6 +244,11 @@ nav ul li {
   justify-content: center;
   align-items: center;
   perspective: 500px;
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
 }
 
 .about-me, .right-arrow {
