@@ -27,27 +27,27 @@ header::after {
   clear: both;
 }
 
-nav {
+.OGheader nav {
   float: right;
 }
 
-homenav{ 
+.OGheader homenav{ 
   float: left;
 }
 
-nav ul {
+.OGheader nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-homenav ul {
+.OGheader homenav ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-nav li{
+.OGheader nav li{
   display: inline-block;
   margin-left: 70px;
   padding-top: 23px;
@@ -56,14 +56,14 @@ nav li{
   height: 30px;
 }
 
-homenav li{
+.OGheader homenav li{
   display: inline-block;
   margin-left: 70px;
   padding-top: 23px;
   padding-bottom: 23px;
   position: relative;}
 
-nav a{
+.OGheader nav a{
   color: #000000;
   text-decoration: none;
   text-transform: uppercase;
@@ -71,18 +71,18 @@ nav a{
 
 }
 
-homenav a{
+.OGheader homenav a{
   color: #000000;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 14px;
 }
 
-nav a:hover {
+.OGheader nav a:hover {
   color: #fff;
 }
 
-homenav a:hover {
+.OGheader homenav a:hover {
   color: #fff;
 }
 
@@ -110,17 +110,18 @@ homenav a::before {
   transition: all ease-in-out 250ms;
 } */
 
-nav a:hover::before {
+.OGheader nav a:hover::before {
   width: 100%;
 }
 
-homenav a:hover::before {
+.OGheader homenav a:hover::before {
   width: 100%;
 }
 
-nav ul li {
+.OGheader nav ul li {
   margin: 0 20px;
 }
+
 
 .bio-heading h1{
   display: flex;
@@ -128,7 +129,10 @@ nav ul li {
   position: relative;
   padding: 10px;
   font-size: 30px;
+  text-align: center;
+  margin-bottom: 20px;
 }
+
 
 .bio-content p{
   display: flex;
@@ -138,11 +142,13 @@ nav ul li {
   font-size: 17px;
 }
 
-.bio-content li{
+/* .bio-content li{
   display: flex;
   justify-content: center;
   position: relative;
-}
+  background-color: transparent;
+} */
+
 /* .icon-15.instagram svg path {
   fill: white; 
 }
@@ -179,8 +185,9 @@ nav ul li {
 
 .profile-landing{
   padding: 20px;
+  transition: opacity 1s ease-in;
+  
 }
-
 .profile-img {
   animation: fadeIn 5s;
   -webkit-animation: fadeIn 5s;
@@ -383,6 +390,30 @@ footer{
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
+.fade-out-up {
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.fade-in-up {
+  transform: translateY(0);
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.fade-out-down {
+  transform: translateY(100%);
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.fade-in-down {
+  transform: translateY(-100%);
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
 .intro-box {
   position: absolute;
   top: 0;
@@ -398,6 +429,11 @@ footer{
   opacity: 0;
   display: none;
   transition: opacity 1.8s ease-in-out;
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
 }
 
 
@@ -418,3 +454,261 @@ footer{
 .close-button > div:last-child{
   -webkit-transform:rotate(-45deg);
 }
+
+ /*************************************** MENU STYLES *************************************/
+ :root {
+  --overlay-color: #c1c7c4;
+  --menu-speed: 0.75s;
+}
+
+ .menu-wrap {
+  position: fixed;
+  top: 0px;
+  right: 100px;
+  z-index: 1;
+  opacity: 1;
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hamburger Line */
+.menu-wrap .hamburger > div {
+  position: relative;
+  flex: none;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+/* Hamburger Lines - Top & Bottom */
+.menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+
+/* Moves Line Down */
+.menu-wrap .hamburger > div::after {
+  top: 10px;
+}
+
+/* Toggler Animation */
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
+
+/* Turns Lines Into X */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* Rotate On Hover When Checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
+}
+
+/* Show Menu */
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: var(--menu-speed);
+}
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transition:  opacity 0.4s ease 0.4s;
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background: var(--overlay-color);
+  /* border-radius: 50%; */
+  width: 200vw;
+  height: 400vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: #000 ;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.menu-wrap .menu > div > div > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.menu h1{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 10px;
+  font-size: 30px;
+}
+
+.menu-socials{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  justify-content: center;
+  list-style: none;
+}
+
+.menu-socials li {
+  padding: 10px;
+}
+
+/************************* MOBILE VERSION ********************************/
+@media (max-width: 768px) {
+  .bio-heading h1 {
+    font-size: 24px;
+    padding: 5px;
+  }
+
+  .bio-content p {
+    font-size: 15px;
+    padding: 20px;
+  }
+
+  .bio-content li {
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  .landing {
+    padding: 10px;
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 5s;
+    -moz-animation: fadeIn 5s;
+    -o-animation: fadeIn 5s;
+    -ms-animation: fadeIn 5s;
+  }
+
+  .profile-landing {
+    padding: 20px;
+    padding-top: 88px;
+  }
+
+  .profile-img img {
+    width: 100%;
+    margin: 0 auto; /* Center the image */
+    display: block;
+    
+  }
+
+  .about-btn {
+    width: 140px;
+    height: 60px;
+    top: 60%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+  }
+
+  .right-arrow {
+    display: none;
+  }
+
+  .intro-box {
+    width: 50%;
+    height: 75%;
+    padding: 20px;
+    font-size: small;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    border-radius: 5px;
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 5s;
+    -moz-animation: fadeIn 5s;
+    -o-animation: fadeIn 5s;
+    -ms-animation: fadeIn 5s;
+  }
+
+  .close-button > div {
+    width: 15px;
+    height: 2px;
+    background-color: #ffff;
+    position: absolute;
+    right: 15px;
+    top: 20px;
+  }
+
+  footer {
+    padding: 10px;
+  }
+
+  .footer-bottom, .footer-section {
+    flex-direction: row;
+  }
+  
+ 
+
+}
+
+
+
