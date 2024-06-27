@@ -6,11 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
         
         if (window.innerWidth <= 768){
             Header.style.display = "none";
-            hamburger.style.display = "block";
+            Header.style.opacity = "0";
         }
         else{
             Header.style.display = "block";
-            hamburger.style.display = "none";
         }
     }
     
@@ -79,13 +78,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const closeButton = document.getElementById("close-button");
     closeButton.addEventListener("click", undoImage);
-    
+    const introBox = document.getElementById("intro-box");
     const Checkbox = document.getElementById("checkbox");
-    Checkbox.addEventListener("change", function(){
+    Checkbox.addEventListener("click", function(){
         if (Checkbox.checked){
             aboutButton.style.display = "none";
+            introBox.style.opacity = "0";
+            introBox.style.display = "none;"
         } else {
             aboutButton.style.display = "flex";
+            introBox.style.display = "flex;"
         }
     })
     
@@ -93,3 +95,18 @@ document.addEventListener("DOMContentLoaded", function() {
     updateImageSource(); // Initial call
     
 });
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) =>{
+        console.log(entry);
+        if (entry.isIntersecting){
+            entry.target.classList.add('show');
+        }else{
+            entry.target.classList.remove('show');
+        }
+    });
+});
+
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));
