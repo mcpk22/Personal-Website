@@ -78,13 +78,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const closeButton = document.getElementById("close-button");
     closeButton.addEventListener("click", undoImage);
-    
+    const introBox = document.getElementById("intro-box");
     const Checkbox = document.getElementById("checkbox");
     Checkbox.addEventListener("click", function(){
         if (Checkbox.checked){
             aboutButton.style.display = "none";
+            introBox.style.opacity = "0";
+            introBox.style.display = "none;"
         } else {
             aboutButton.style.display = "flex";
+            introBox.style.display = "flex;"
         }
     })
     
