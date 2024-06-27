@@ -749,6 +749,7 @@ footer{
     left: 0;
     bottom: auto;
     border-radius: 40px;
+    transform: translate(0, 25%);
     animation: fadeIn 5s;
     -webkit-animation: fadeIn 5s;
     -moz-animation: fadeIn 5s;
