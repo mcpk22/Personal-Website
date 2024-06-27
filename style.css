@@ -9,7 +9,25 @@ body {
   background-color:#c1c7c4;
 }
 
+/* background-image: linear-gradient(180deg, rgba(50, 55, 40, 0.00) 25%, rgba(48, 67, 64, 0.9) 65%); */
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 .container {
 	width: 80%;
@@ -79,11 +97,11 @@ header::after {
 }
 
 .OGheader nav a:hover {
-  color: #fff;
+  color: rgb(72, 112, 60);;
 }
 
 .OGheader homenav a:hover {
-  color: #fff;
+  color: rgb(72, 112, 60);;
 }
 
 /* nav a::before {
@@ -158,11 +176,11 @@ homenav a::before {
 
 .icon.linkedin svg path {
   fill: white; 
-}
+}*/
 
-.icon-15.instagram:hover svg path, .icon-15.instagram:hover svg circle, .icon.linkedin:hover svg path {
-  fill: #c1c7c4;
-} */
+.icon-15.instagram:hover svg path, .icon-15.instagram:hover svg circle, .icon.linkedin:hover svg path, .icon-13.github:hover svg path, .icon-email:hover svg path{
+  fill: rgb(72, 112, 60);
+}
 
 /* .landing .landing-img img{
   object-fit: cover; 
@@ -183,12 +201,20 @@ homenav a::before {
   background-color: #c1c7c4; 
 }
 
+.Profile-home{
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 100vh;
+}
+
 .profile-landing{
   padding: 20px;
   transition: opacity 1s ease-in;
   
 }
 .profile-img {
+  border-radius:40px ;
   animation: fadeIn 5s;
   -webkit-animation: fadeIn 5s;
   -moz-animation: fadeIn 5s;
@@ -203,6 +229,7 @@ homenav a::before {
 .landing-img, .about-pic{
   position: relative;
   display: inline-block;
+  border-radius:40px ;
 }
 .profile-img img{
   width: 100%;
@@ -210,11 +237,13 @@ homenav a::before {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius:40px ;
 }
 
 .landing-img img, .about-pic img {
   max-width: 100%;
   height: auto;
+  border-radius:40px ;
   animation: fadeIn 5s;
   -webkit-animation: fadeIn 5s;
   -moz-animation: fadeIn 5s;
@@ -416,16 +445,19 @@ footer{
 
 .intro-box {
   position: absolute;
-  top: 0;
+  top: 31%;
   left: 0;
   bottom: 0;
-  width: 36%;
+  z-index: 1;
+  width: fit-content;
+  height: fit-content;
   text-align: justify;
   color: white;
-  background-color: rgba(0, 0, 0, 0.5); 
+  transform: translate(0, 61%);
+  /* background-color: rgba(0, 0, 0, 0.5);  */
   padding: 36px; 
-  border-radius: 10px;
-  font-size: large;
+  border-radius: 40px;
+  font-size: small;
   opacity: 0;
   display: none;
   transition: opacity 1.8s ease-in-out;
@@ -434,8 +466,15 @@ footer{
   -moz-animation: fadeIn 5s;
   -o-animation: fadeIn 5s;
   -ms-animation: fadeIn 5s;
+  background-image: linear-gradient(180deg, rgba(50, 55, 40, 0.00) 25%, rgba(48, 67, 64, 0.9) 65%);
 }
 
+.intro p{
+  font-size: small;
+  top: 23px;
+  position: relative;
+  display: block;
+}
 
 .close-button > div {
   width: 20px;
@@ -453,6 +492,25 @@ footer{
 
 .close-button > div:last-child{
   -webkit-transform:rotate(-45deg);
+}
+
+.hidden{
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1s;
+}
+
+/* @media(prefers-reduced-motion){
+    .hidden{
+        transition: none;
+    }
+} */
+
+.show{
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
 }
 
  /*************************************** MENU STYLES *************************************/
@@ -498,13 +556,15 @@ footer{
 .menu-wrap .hamburger > div {
   position: relative;
   flex: none;
-  width: 100%;
-  height: 2px;
+  width: 45%;
+  height: 3px;
+  top: -12px;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.4s ease;
+  background-color: black;
 }
 
 /* Hamburger Lines - Top & Bottom */
@@ -517,6 +577,7 @@ footer{
   width: 100%;
   height: 2px;
   background: inherit;
+  background-color: black;
 }
 
 /* Moves Line Down */
@@ -597,6 +658,10 @@ footer{
   padding: 1rem;
 }
 
+.menu-wrap .menu > div > div > ul > li:hover{
+  color: rgb(72, 112, 60);;
+}
+
 .menu-wrap .menu > div > div > ul > li > a {
   color: inherit;
   text-decoration: none;
@@ -622,6 +687,34 @@ footer{
 .menu-socials li {
   padding: 10px;
 }
+
+.menu-socials{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  justify-content: center;
+  list-style: none;
+  background-color: #163c29;
+  border-radius: 60px;
+}
+
+.menu{
+  .icon-15.instagram svg path {
+    fill: rgb(192, 192, 192);
+  }
+  .icon-15.instagram svg circle {
+    fill: rgb(192, 192, 192);
+  }
+  
+  .icon.linkedin svg path, .icon-13.github svg path {
+    fill: rgb(192, 192, 192);
+  }
+    
+  .icon-15.instagram:hover svg path, .icon-15.instagram:hover svg circle, .icon.linkedin:hover svg path, .icon-13.github:hover svg path, .icon-email:hover svg path{
+    fill: rgb(72, 112, 60);
+  }
+}
+
 
 /************************* MOBILE VERSION ********************************/
 @media (max-width: 768px) {
@@ -658,6 +751,7 @@ footer{
     width: 100%;
     margin: 0 auto; /* Center the image */
     display: block;
+    border-radius: 20px;
     
   }
 
@@ -674,19 +768,20 @@ footer{
   }
 
   .intro-box {
-    width: 50%;
-    height: 75%;
+    width: fit-content;
     padding: 20px;
-    font-size: small;
-    top: 0;
+    font-size: x-small;
+    top: 0%;
     left: 0;
     bottom: auto;
-    border-radius: 5px;
+    border-radius: 40px;
+    transform: translate(0, 66%);
     animation: fadeIn 5s;
     -webkit-animation: fadeIn 5s;
     -moz-animation: fadeIn 5s;
     -o-animation: fadeIn 5s;
     -ms-animation: fadeIn 5s;
+    background-image: linear-gradient(180deg, rgba(29, 55, 40, 0.00) 25%, rgba(48, 67, 64, 0.9) 65%);
   }
 
   .close-button > div {
@@ -694,21 +789,81 @@ footer{
     height: 2px;
     background-color: #ffff;
     position: absolute;
-    right: 15px;
-    top: 20px;
+    left: 20px;
+    top: 35px;
   }
 
   footer {
     padding: 10px;
+    position: relative;
+    bottom: 15px;
   }
 
   .footer-bottom, .footer-section {
     flex-direction: row;
   }
   
- 
+  .intro-box p{
+		top: 20px;
+		display: block;
+		position: relative;
+	}
+
+  .menu-wrap .hamburger > div,
+  .menu-wrap .hamburger > div::before,
+  .menu-wrap .hamburger > div::after {
+  background-color: white;
+  }
+
+  .OGheader nav {
+    display: none;
+    opacity: 0;
+  }
+  
+  .OGheader homenav{ 
+    display: none;
+    opacity: 0;
+  }
+  
+  .OGheader nav ul {
+    display: none;
+    opacity: 0;
+  }
+  
+  .OGheader homenav ul {
+    display: none;
+    opacity: 0;
+  }
+  
+  .OGheader nav li{
+    display: none;
+    opacity: 0;
+  }
+  
+  .OGheader homenav li{
+    display: none;
+    opacity: 0;
+  }
+  
+  .OGheader nav a{
+    display: none;
+    opacity: 0;
+  
+  }
+  
+  .OGheader homenav a{
+    display: none;
+    opacity: 0;
+
+  }
+
+  .right-arrow{
+    display: none;
+  }
+
+  .about-btn:hover .about-me {
+    transform: translateX(0%);
+  }
 
 }
-
-
 
