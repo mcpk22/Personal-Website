@@ -475,7 +475,7 @@ footer{
 .intro-box p{
   position: absolute;
   display: block;
-  top: 43%;
+  top: 50%;
   padding: 17px;
   color: white;
   font-size: larger;
